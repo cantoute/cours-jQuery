@@ -2,7 +2,9 @@
 
 ## Révision des bases du JavaScript
 
-https://slides.com/davidjegat-1/javascript-jquery/fullscreen
+- https://slides.com/davidjegat-1/javascript-jquery/fullscreen
+
+- Bac à sable / Playground https://jsfiddle.net/
 
 ## jQuery
 
@@ -17,7 +19,7 @@ https://slides.com/davidjegat-1/javascript-jquery/fullscreen
     Sélecteurs jQuery
   </title>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="//code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
   <h1>Titre h1</h1>
