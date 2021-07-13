@@ -8,72 +8,68 @@
 
 ## jQuery
 
-
 ### Sélecteurs jQuery (css3)
 
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <title>
-    Sélecteurs jQuery
-  </title>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-  <script src="//code.jquery.com/jquery-latest.min.js"></script>
-</head>
-<body>
-  <h1>Titre h1</h1>
+  <head>
+    <title>Sélecteurs jQuery</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <h1>Titre h1</h1>
 
-  <div class="voiture">Voiture 1</div>
-  <div class="voiture">Voiture 2</div>
-  <div class="voiture">Voiture 3</div>
+    <div class="voiture">Voiture 1</div>
+    <div class="voiture">Voiture 2</div>
+    <div class="voiture">Voiture 3</div>
 
-  <section id="masec">Section</section>
+    <section id="masec">Section</section>
 
-  <article>Article</article>
+    <article>Article</article>
 
-  <span>span</span>
+    <span>span</span>
 
-  <div>
-    <input type="checkbox" name="a">
-    <span>Mary</span>
-  </div>
-  <div>
-    <input type="checkbox" name="b">
-    <span>lcm</span>
-  </div>
-  <div>
-    <input type="checkbox" name="c" checked="checked">
-    <span>Peter</span>
-  </div>
+    <div>
+      <input type="checkbox" name="a" />
+      <span>Mary</span>
+    </div>
+    <div>
+      <input type="checkbox" name="b" />
+      <span>lcm</span>
+    </div>
+    <div>
+      <input type="checkbox" name="c" checked="checked" />
+      <span>Peter</span>
+    </div>
 
-  <script>
-    // éviter tout conflit sur $
-    (function($){
-      // notre code ici
-    
-      // selection BALISE
-      var myspan = $('span');
-      $(myspan).css('color', 'purple');
+    <script>
+      // éviter tout conflit sur $
+      (function ($) {
+        // notre code ici
 
-      // selection ID
-      var myid = $('#masec');
-      $(myid).css('color', 'red');
+        // selection BALISE
+        var myspan = $('span');
+        $(myspan).css('color', 'purple');
 
-      // selection CLASS
-      var myclass = $('.voiture');
-      $(myclass).css('color', 'green');
+        // selection ID
+        var myid = $('#masec');
+        $(myid).css('color', 'red');
 
-      // selection MULTIPLE
-      var elements = $('h1, article'); // la virgule permet de prendre en compte plusieurs éléments
-      $(elements).css('color', 'orange');
+        // selection CLASS
+        var myclass = $('.voiture');
+        $(myclass).css('color', 'green');
 
-      $( "input:not(:checked) + span" ).css( "background-color", "yellow" );
-      $( "input").attr( "disabled", "disabled" );
-    })(jQuery);
+        // selection MULTIPLE
+        var elements = $('h1, article'); // la virgule permet de prendre en compte plusieurs éléments
+        $(elements).css('color', 'orange');
 
-  </script>
-</body>
+        $('input:not(:checked) + span').css('background-color', 'yellow');
+        $('input').attr('disabled', 'disabled');
+      })(jQuery);
+    </script>
+  </body>
 </html>
 ```
 
@@ -82,25 +78,43 @@
 ```js
 // click
 $('h1').on('click', function () {
-    alert($(this).text());
+  event.preventDefault(); // need this on links
+
+  alert($(this).text());
 });
 
 // hover
 $('.avion').hover(function () {
-    $(this).css('background-color', 'orange');
+  $(this).css('background-color', 'orange');
 });
 
 // mouseenter
 $('table').on('mouseenter', function () {
-    $(this).css('background-color', 'yellow');
+  $(this).css('background-color', 'yellow');
 });
 
 // mouseleave
 $('table').on('mouseleave', function () {
-    $(this).css('background-color', 'white');
+  $(this).css('background-color', 'white');
 });
 ```
 
-#### Évènements Pointeur (souris)
+#### Évènements
 
-Documentation https://api.jquery.com/mouseover/
+- [bind](https://api.jquery.com/bind/) / [unbind](https://api.jquery.com/unbind/) | _on/off_
+
+  - [events](https://api.jquery.com/category/events/)
+
+    - change
+    - click
+    - dblclick
+    - mousedown
+    - mouseenter
+    - mouseleave
+    - [mousemove](https://api.jquery.com/mousemove/)
+      - event.pageX / event.pageY
+    - [mouseover](https://api.jquery.com/mouseover/)
+
+    - focus _focusin_
+    - blur _focusout_
+    - keypress / keyup / keydown
