@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Qn click, add a &gt;p&lt; below</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <form>
+      <p>Hello</p>
+    </form>
+    <div id="debug"></div>
+    <script>
+      var cnt = 0;
+
+      // $('p').on('click', function () {
+      //   $(this).after(`<p>A new paragraph (${++cnt})</p>`);
+      // });
+
+      // pour que les nouveaux <p> soient cliquable
+      $(document).on('click', 'p', function () {
+        $(this).after(`<p>A new paragraph (${++cnt})</p>`);
+      });
+    </script>
+  </body>
+</html>
