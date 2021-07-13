@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercice AJAX</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <h1>Exercice AJAX.</h1>
+    <div id="displayPageContent"></div>
+    <p id="debug"></p>
+    <script>
+      $.ajax({
+        url: 'page.html',
+        method: 'GET',
+      })
+        .then(function (data) {
+          var html = $(data).filter('#content');
+
+          $('#displayPageContent').html(html);
+        })
+        .fail(function (error) {
+          console.error(error);
+
+          $('#displayPageContent').html('Erreur de chargement !');
+        });
+    </script>
+  </body>
+</html>
