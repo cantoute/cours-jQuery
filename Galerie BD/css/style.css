@@ -483,8 +483,10 @@ figure figcaption {
   margin-bottom: 20px;
 }
 
-#bd aside a:first-child {
+/* #bd aside a:first-child, */
+#bd aside a.active {
   border-color: red;
+  cursor: default;
 }
 
 #bd aside a:nth-child(2n+1) {
