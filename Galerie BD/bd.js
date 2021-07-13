@@ -7,20 +7,20 @@ console.log(document.querySelector('aside a').getAttribute('title'));
 var mesLiens = document.querySelectorAll('aside a');
 console.log(mesLiens);
 
-// je boucle sur chacun de ces liens pour leur appliquer l'événement clique
+// boucle sur chacun des liens pour écouter l'événement click
 for (var i = 0; i < mesLiens.length; i++) {
-  // application de l'événement clique a chacun des liens successivement
+  // écouter événement click chacun des liens successivement
   mesLiens[i].addEventListener('click', function (event) {
-    // j'evite le comportement par défaut dû au clic sur la balise <a>
+    // désactiver comportement par défaut dû au clic sur la balise <a>
     event.preventDefault();
 
     // ***********************************
     // recuperation de valeur d'attributs
     // ***********************************
 
-    // je récupère le href
+    // récupérer le href
     let lien = this.getAttribute('href');
-    // je récupère le title du lien
+    // récupérer l'attribut title du lien
     let titre = this.getAttribute('title');
     // console.log(titre);
 
@@ -28,21 +28,20 @@ for (var i = 0; i < mesLiens.length; i++) {
     // attribution de valeur d'attribut
     // ***********************************
 
-    // je donne à l'attribut src de mon image dans figure le lien récupéré sur la vignette
+    // donner à l'attribut src de l'image dans figure le lien récupéré sur la vignette
     let grandeImage = document.querySelector('figure img');
     grandeImage.setAttribute('src', lien);
-    // je confère le title du <a> en innerText à figcaption
+    // title du <a> en innerText de figcaption
     document.querySelector('figcaption').innerText = titre;
-    // je confère au alt de ma grande image, le title récupéré sur le <a>
+    // alt de grande image, le title récupéré sur le <a>
     grandeImage.setAttribute('alt', titre);
 
-    // je passe tous les contours en noir en bouclant sur toutes les vignettes
+    // passer tous les contours en noir en bouclant sur toutes les vignettes
     for (var j = 0; j < mesLiens.length; j++) {
       mesLiens[j].style.borderColor = 'black';
     }
 
-    // j'affecte un contour rouge sur l'image cliquée
+    // affecter un contour rouge sur l'image cliquée
     this.style.borderColor = 'red';
-    this.style.fontSize = '30px';
   });
 }
