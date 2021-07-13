@@ -14,5 +14,27 @@
       <label><input type="checkbox" name="color" value="Black" /> Black</label>
     </form>
     <p id="msg"></p>
+    <script>
+      function updateMsg() {
+        const c = $('input:checked').length;
+
+        var t;
+
+        if (c == 0) {
+          t = `Aucune case n'est cochée.`;
+        } else if (c == 1) {
+          t = 'Une case est cochée.';
+        } else {
+          t = `${c} cases sont cochées.`;
+        }
+
+        // t = c == 0 ? `Aucune case n'est cochée.` : c > 1 ? `${c} cases sont cochées.` : 'Une case est cochée.';
+
+        $('#msg').text(t);
+      }
+
+      $('input').on('change', updateMsg);
+      updateMsg();
+    </script>
   </body>
 </html>
