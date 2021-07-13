@@ -14,6 +14,10 @@
       <label><input type="checkbox" name="color" value="Black" /> Black</label>
     </form>
     <p id="msg"></p>
+
+    <hr />
+    <input type="text" id="inputText" />
+
     <script>
       function updateMsg() {
         const c = $('input:checked').length;
@@ -28,6 +32,7 @@
           t = `${c} cases sont cochées.`;
         }
 
+        // Equivalent
         // t = c == 0 ? `Aucune case n'est cochée.` : c > 1 ? `${c} cases sont cochées.` : 'Une case est cochée.';
 
         $('#msg').text(t);
@@ -35,6 +40,22 @@
 
       $('input').on('change', updateMsg);
       updateMsg();
+
+      $('#inputText').on('focus', function () {
+        console.log('got focus');
+      });
+
+      $('#inputText').on('blur', function () {
+        console.log('lost focus (blur)');
+      });
+
+      $('#inputText').on('keydown', function () {
+        console.log('input text keydown');
+      });
+
+      $('#inputText').on('change', function () {
+        console.log('input text change');
+      });
     </script>
   </body>
 </html>
