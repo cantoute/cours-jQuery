@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercice 1 JQuery</title>
+    <meta charset="UTF-8" />
+
+    <style>
+      img {
+        width: 300px;
+      }
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+
+  <body>
+    <img src="img/1.jpg" />
+    <button>Changer l'image</button>
+
+    <script>
+      // L'image doit changer quand je clique sur le bouton
+      $('button').click(function () {
+        $('img').attr('src', 'img/2.jpg');
+      });
+    </script>
+  </body>
+</html>

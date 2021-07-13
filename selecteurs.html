@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Sélecteurs JQuery
+  </title>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+
+<body>
+
+  <h1>Titre h1</h1>
+
+  <div class="voiture">Voiture 1</div>
+  <div class="voiture">Voiture 2</div>
+  <div class="voiture">Voiture 3</div>
+
+  <section id="masec">Section</section>
+
+  <article>Article</article>
+
+  <span>span</span>
+
+  <script type="text/javascript">
+
+    // selection BALISE
+    var myspan = $('span');
+    $(myspan).css('color', 'purple');
+
+    // selection ID
+    var myid = $('#masec');
+    $(myid).css('color', 'red');
+
+    // selection CLASS
+    var myclass = $('.voiture');
+    $(myclass).css('color', 'green');
+
+    // selection MULTIPLE
+    var elements = $('h1, article'); // la virgule permet de prendre en compte plusieurs éléments
+    $(elements).css('color', 'orange');
+  </script>
+</body>
+
+</html>

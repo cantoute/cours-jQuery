@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercice 2</title>
+    <style>
+      div {
+        border: 3px solid black;
+        padding: 50px;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <h1>Cliquez dans la div</h1>
+      <p>Paragraphe</p>
+      <p>Deuxième paragraphe</p>
+      <p>Troisième paragraphe</p>
+    </div>
+
+    <script type="text/javascript">
+      $('div').click(function () {
+        $('h1').css('display', 'none');
+        $('p').css({ color: 'white', 'background-color': 'orange', border: '5px solid red', 'font-size': '35px' });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Evènements JQuery</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  </head>
+
+  <body>
+    <h1>Titre h1</h1>
+
+    <div class="avion">avion 1</div>
+    <div class="avion">avion 2</div>
+    <div class="avion">avion 3</div>
+
+    <table border="1">
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+    </table>
+
+    <script type="text/javascript">
+      // click
+      $('h1').on('click', function () {
+        alert($(this).text());
+      });
+
+      // hover
+      $('.avion').hover(function () {
+        $(this).css('background-color', 'orange');
+      });
+
+      // mouseenter
+      $('table').on('mouseenter', function () {
+        $(this).css('background-color', 'yellow');
+      });
+
+      // mouseleave
+      $('table').on('mouseleave', function () {
+        $(this).css('background-color', 'white');
+      });
+    </script>
+  </body>
+</html>

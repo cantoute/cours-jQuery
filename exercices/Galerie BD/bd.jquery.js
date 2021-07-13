@@ -35,5 +35,6 @@ navLinks.on('click', function (event) {
   // // affecter un contour rouge sur l'élément cliqué
   // $(this).css({
   //   borderColor: 'red',
+  //   fontSize: '30px',
   // });
 });
