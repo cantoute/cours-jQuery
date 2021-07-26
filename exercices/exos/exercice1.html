@@ -13,13 +13,20 @@
   </head>
 
   <body>
-    <img src="img/1.jpg" />
+    <img src="img/1.jpg" class="first" />
+    <img src="img/1.jpg" class="second" />
     <button>Changer l'image</button>
 
     <script>
       // L'image doit changer quand je clique sur le bouton
       $('button').click(function () {
-        $('img').attr('src', 'img/2.jpg');
+        $('img')
+          .is('.first')
+          .attr('src', 'img/2.jpg')
+          .attr('alt', 'Image 2')
+          .attr('title', 'Image 2')
+          .attr('title', 'Image 2')
+          .on('click', function () {});
       });
     </script>
   </body>

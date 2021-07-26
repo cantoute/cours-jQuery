@@ -26,15 +26,4 @@ navLinks.on('click', function (event) {
   $('figcaption').text(title);
 
   console.log('Viewing', title, imgSrc);
-
-  // bouclant sur toutes les vignettes remettre toutes les bordures à noir
-  // navLinks.css({
-  //   borderColor: 'black',
-  // });
-
-  // // affecter un contour rouge sur l'élément cliqué
-  // $(this).css({
-  //   borderColor: 'red',
-  //   fontSize: '30px',
-  // });
 });

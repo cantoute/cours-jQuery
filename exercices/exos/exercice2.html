@@ -21,9 +21,15 @@
     </div>
 
     <script type="text/javascript">
-      $('div').click(function () {
-        $('h1').css('display', 'none');
-        $('p').css({ color: 'white', 'background-color': 'orange', border: '5px solid red', 'font-size': '35px' });
+      $('div').on('click', function () {
+        $('h1').hide(1000);
+
+        $('p').css({
+          color: 'white',
+          'background-color': 'orange',
+          border: '5px solid red',
+          'font-size': '35px',
+        });
       });
     </script>
   </body>
