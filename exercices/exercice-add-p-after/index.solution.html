@@ -18,7 +18,10 @@
       //   $(this).after(`<p>A new paragraph (${++cnt})</p>`);
       // });
 
-      // pour que les nouveaux <p> soient cliquable on intercepte le click
+      // le code ci-dessus fonctionne mais seulement sur le <p> existant
+      // au moment du chargement du document.
+
+      // Pour que les nouveaux <p> soient cliquables on intercepte le click
       // sur le document puis on filtre les éléments <p>
       $(document).on('click', 'p', function () {
         $(this).after(`<p>A new paragraph (${++cnt})</p>`);
