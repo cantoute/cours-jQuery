@@ -16,9 +16,23 @@
     </form>
     <p id="msg"></p>
 
+    <script>
+      const updateCounter = function () {
+        const cnt = $('input[type=checkbox]:checked').length;
+        var msg =
+          cnt == 0 ? 'Aucune case cochée' : cnt == 1 ? 'Une case est cochée' : `Vous avez coché <b>${cnt}</b> cases.`;
+        $('#msg').text(msg);
+      };
+
+      $('input[type=checkbox]').on('change', updateCounter);
+
+      updateCounter();
+    </script>
+
     <hr />
     <input type="text" id="inputText" />
 
+    <!--
     <script>
       function updateMsg() {
         const c = $('input:checked').length;
@@ -57,6 +71,6 @@
       $('#inputText').on('change', function () {
         console.log('input text change');
       });
-    </script>
+    </script>-->
   </body>
 </html>
