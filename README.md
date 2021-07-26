@@ -16,7 +16,7 @@
   <head>
     <title>Sélecteurs jQuery</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <script src="//code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
   </head>
   <body>
     <h1>Titre h1</h1>
