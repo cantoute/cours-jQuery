@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Jeux</title>
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  </head>
+  <body>
+    <h1>Trouveras-tu le bon chiffre ?</h1>
+    <p>L'ordinateur a choisi un chiffre. Devines-le !</p>
+    <button>Jouer</button>
+
+    <hr />
+
+    <button>Jouer aussi</button>
+    <script>
+      'use strict';
+
+      //2.Votre programme selectionnera un chiffre aléatoire entre 0 et 9.
+      //Fonction pour retourner un chiffre aléatoire
+      function randInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      let nbAleatoire = randInt(10);
+      console.log(nbAleatoire);
+
+      //3.Puis l'utilisateur devra cliquer pour commencer le jeu sur un bouton " Jouer "
+      const boutons = $('button');
+
+      boutons.on('click', function () {
+        let reponse;
+
+        //4.Puis demandera à l'utilisateur de donner une réponse.
+        do {
+          reponse = prompt('Donner un nombre');
+
+          //5.Si la réponse est juste alors le programme affiche " Vous avez gagné "
+          if (reponse == nbAleatoire) {
+            alert('Félicitations vous avez trouvé!');
+          }
+
+          //6.Sinon , le programme redemandera de donner un autre nombre avec une indication (trop haut ou trop bas )
+          else if (reponse < nbAleatoire) {
+            alert('Trop bas, réessayez');
+          } else if (reponse > nbAleatoire) {
+            alert('Trop haut, réessayez');
+          }
+        } while (reponse != nbAleatoire);
+      });
+    </script>
+  </body>
+</html>
