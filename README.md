@@ -101,17 +101,52 @@ $('table').on('mouseleave', function () {
 
 #### Évènements
 
+```js
+$('body').click(function (event) {
+  // event.target fait référence à l'élément
+  // du DOM qui a reçu l'évènement.
+  console.log('clicked: ', event.target.nodeName);
+
+  if (event.target.nodeName == 'IMG') {
+    console.log('img src: ', event.target.src);
+  }
+
+  // alors que $(this) == $('body')
+});
+
+// intercepter le comportement par défaut du navigateur
+$('a.confirm').on('click', function (event) {
+  const msg = `Voulez vous suivre ce lien ? ` + event.target.href;
+  const c = confirm(msg);
+
+  // soit avec  event.preventDefault();
+  if (!c) {
+    event.preventDefault();
+  }
+
+  // soit en retournant false;
+  // return c;
+});
+```
+
 - [bind](https://api.jquery.com/bind/) / [unbind](https://api.jquery.com/unbind/) | _on/off_
 
-  - [events](https://api.jquery.com/category/events/)
+  - L'objet [Event](https://api.jquery.com/category/events/event-object/)
 
-    - change
-    - click
+    ```js
+    // Create a new jQuery.Event object without the "new" operator.
+    var e = jQuery.Event('click');
+
+    // trigger an artificial click event
+    jQuery('body').trigger(e);
+    ```
+
+    - click / dblclick
 
       - Ne pas suivre un lien : [Event.preventDefault()](https://developer.mozilla.org/fr/docs/Web/API/Event/preventDefault) (ou `return false;`)
 
       ```js
-      $('a').on('clic', function (event) {
+      $('a').on('click', function (event) {
         // Ne pas exécuter l'action par défaut du navigateur.
         // ex: ne pas suivre un lien ou ne pas poster le formulaire.
         event.preventDefault();
@@ -119,8 +154,8 @@ $('table').on('mouseleave', function () {
         console.log('Clic sur le lien intercepté');
 
         // une autre façon de faire la même chose :
-        return false;
-        // et tout code suivant ne sera pas exécuté
+        // return false;
+        // Remarque : tout code suivant ne sera pas exécuté
       });
       ```
 
@@ -130,14 +165,27 @@ $('table').on('mouseleave', function () {
       <form onsubmit="return false;"></form>
       ```
 
-    - dblclick
-    - mousedown
-    - mouseenter
-    - mouseleave
     - [mousemove](https://api.jquery.com/mousemove/)
+
       - event.pageX / event.pageY
+
+      ```js
+      $(document).on('mousemove', function (e) {
+        const x = e.pageX;
+        const y = e.pageY;
+        $('#debug').text(`Mouse event (pageX/pageY): ${x}/${y}`);
+      });
+      ```
+
+    - mouseenter / mouseleave
     - [mouseover](https://api.jquery.com/mouseover/)
 
-    - focus _focusin_
-    - blur _focusout_
+    - change
+    - focus / blur
+
+      Remarque : ils ne se propagent pas en remontant le DOM, par contre focusin/focusout se propagent)
+
     - keypress / keyup / keydown
+    - Tous les évènements (events) https://api.jquery.com/category/events/
+      - [Formulaires](https://api.jquery.com/category/events/form-events/)
+      -
