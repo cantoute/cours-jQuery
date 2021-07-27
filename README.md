@@ -107,6 +107,29 @@ $('table').on('mouseleave', function () {
 
     - change
     - click
+
+      - Ne pas suivre un lien : [Event.preventDefault()](https://developer.mozilla.org/fr/docs/Web/API/Event/preventDefault) (ou `return false;`)
+
+      ```js
+      $('a').on('clic', function (event) {
+        // Ne pas exécuter l'action par défaut du navigateur.
+        // ex: ne pas suivre un lien ou ne pas poster le formulaire.
+        event.preventDefault();
+
+        console.log('Clic sur le lien intercepté');
+
+        // une autre façon de faire la même chose :
+        return false;
+        // et tout code suivant ne sera pas exécuté
+      });
+      ```
+
+      ```html
+      <!-- Pour info, ceci est possible également. -->
+      <a href="#" onclick="return false;"></a>
+      <form onsubmit="return false;"></form>
+      ```
+
     - dblclick
     - mousedown
     - mouseenter
