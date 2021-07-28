@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <!--
+    Lien pour recuperer les fichiers :
+    https://we.tl/t-Y5c2tuOOO7
+  -->
+
+  <head>
+    <title>Sideshow bd</title>
+    <meta charset="UTF-8" />
+
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body id="bd">
+    <header>
+      <h1>Galerie</h1>
+    </header>
+
+    <section class="main clearfix">
+      <div id="main">
+        <img src="img/sideshow/avengers.jpg" alt="Les avengers" />
+        <div class="caption">Les avengers</div>
+      </div>
+      <aside class="clearfix">
+        <a href="img/sideshow/avengers.jpg" title="Les avengers" class="active">
+          <img src="img/sideshow/avengers_mini.jpg" alt="Les avengers" />
+        </a>
+        <a href="img/sideshow/blacksad.jpg" title="Blacksad">
+          <img src="img/sideshow/blacksad_mini.jpg" alt="Blacksad" />
+        </a>
+        <a href="img/sideshow/comanche.jpg" title="Comanche">
+          <img src="img/sideshow/comanche_mini.jpg" alt="Comanche" />
+        </a>
+        <a href="img/sideshow/decapeetdecrocs.jpg" title="De cape et de crocs">
+          <img src="img/sideshow/decapeetdecrocs_mini.jpg" alt="De cape et de crocs" />
+        </a>
+        <a href="img/sideshow/jeremiah.jpg" title="Jeremiah">
+          <img src="img/sideshow/jeremiah_mini.jpg" alt="Jeremiah" />
+        </a>
+        <a href="img/sideshow/saiyuki.jpg" title="Saiyuki">
+          <img src="img/sideshow/saiyuki_mini.jpg" alt="Saiyuki" />
+        </a>
+        <a href="img/sideshow/santiag.jpg" title="Santiag">
+          <img src="img/sideshow/santiag_mini.jpg" alt="Santiag" />
+        </a>
+        <a href="img/sideshow/spirou.jpg" title="Spirou et Fantasio">
+          <img src="img/sideshow/spirou_mini.jpg" alt="Spirou et Fantasio" />
+        </a>
+        <a href="img/sideshow/trollsdetroy.jpg" title="Trolls de Troy">
+          <img src="img/sideshow/trollsdetroy_mini.jpg" alt="Trolls de Troy" />
+        </a>
+        <a href="img/sideshow/xiii.jpg" title="XIII">
+          <img src="img/sideshow/xiii_mini.jpg" alt="XIII" />
+        </a>
+      </aside>
+    </section>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+      /**
+       * Astuce: avec VSCode ici l'auto-completion fonctionnera sur $() (car il voit la ligne 57)
+       * Mais on peut l'activer sur tous les fichiers.js en ajoutant un fichier jsconfig.json
+       * à la racine de votre projet.
+       * https://github.com/cantoute/cours-jQuery/blob/master/jsconfig.json
+       * (Info: cela fonctionne aussi avec npm / package.json)
+       **/
+
+      // Équivalent à jQuery(document).ready(function($){
+      jQuery(function ($) {
+        $('aside a').on('click', function (event) {
+          // que le navigateur ne suiva pas le lien (action par défaut lors d'un click sur <a>)
+          event.preventDefault();
+
+          // déplacer la classe active sur le <a> cliqué (this)
+          $('aside a.active').removeClass('active');
+          $(this).addClass('active');
+
+          // on récupère l'url de la grande image.
+          var lien = $(this).attr('href');
+
+          // on change le src de la grande image.
+          $('#main img').attr('src', lien);
+
+          // on récupère le title du lien
+          var title = $(this).attr('title');
+
+          // on récupère le alt de l'image  l'intérieur du lien cliqué (this)
+          var caption = $('img', this).attr('alt');
+
+          // si le caption (img alt) est vide, on utilise le title
+          caption = caption || title;
+
+          // on actualise le contenu de la div.caption
+          $('div.caption').text(caption);
+        });
+      });
+    </script>
+  </body>
+</html>
