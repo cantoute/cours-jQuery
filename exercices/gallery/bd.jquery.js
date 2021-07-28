@@ -20,7 +20,12 @@ $(function () {
 
     let imgSrc = $(this).attr('href');
 
+    // récupérer l'attribut alt de <img> qui est à l'intérieur du <a> (this)
     let imgAlt = $('img', this).attr('alt') || title;
+
+    // en fait comme c'est l'image qui reçoit le click,
+    // on peut aussi la cibler avec event.target
+    // imgAlt = event.target.alt || title
 
     // actualiser l'affichage
     $('figure img').attr('src', imgSrc).attr('alt', imgAlt);
