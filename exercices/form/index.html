@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercice Formulaires</title>
+
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exercice Formulaires</h1>
+    <section>
+      <ul>
+        <li>Effacer le message qui demande l'activation du javascript.</li>
+        <li>
+          La case à cocher <i>activeInputTitle</i> doit permettre d'activer/désactiver l'édition de <i>inputTitle</i>
+        </li>
+        <li>En utilisant <i>event change</i>, supprimer espaces de début et de fin de text. (trim())</li>
+        <li>
+          Le champ <i>Prénom</i> et <i>NOM</i> sont obligatoires. (event keypress)<br />
+          Si le champ ne rempli pas les conditions, ajouter la classe "error" sur le label parent.
+          <ul>
+            <li>Nettoyer la saisie à l'aide de trim().</li>
+            <li>Mettre le prénom à la forme "Prénom" et nom en majuscules (NOM)</li>
+            <li>Vérifier qu'il fasse au moins 2 lettres.</li>
+          </ul>
+        </li>
+        <li>Rendre le champ email obligatoire, aussi vérifier que l'email soit correct via <i>isEmail()</i></li>
+        <li>
+          Intercepter la soumission du formulaire et afficher dans #msg un message "Merci de vérifier votre saisie." ou
+          "Nous avons bien reçu votre demande." si toutes les conditions sont bien remplies.
+        </li>
+      </ul>
+    </section>
+    <hr />
+    <form method="GET" id="form_1">
+      <fieldset class="fs_1">
+        <label><input type="checkbox" name="activeInputTitle" value="active" /> Personnaliser le titre</label>
+      </fieldset>
+      <fieldset class="fs_2">
+        <label for="inputTitle">Titre</label>
+        <input type="text" name="title" id="inputTitle" disabled="disabled" placeholder="Titre par défaut" />
+      </fieldset>
+      <fieldset class="fs_3">
+        <label>Prénom : <input type="text" name="firstName" placeholder="Prénom" /></label>
+        <br />
+        <label>NOM : <input type="text" name="lastName" placeholder="NOM" /></label>
+      </fieldset>
+      <fieldset class="fs_4">
+        <label> Courriel : <input type="email" name="email" placeholder="exemple.com" /> </label>
+      </fieldset>
+      <fieldset class="fs_5">
+        <p id="msg">Ce formulaire requiert que le JavaScript de votre navigateur soit activé.</p>
+      </fieldset>
+      <fieldset class="actions">
+        <button type="submit">Valider</button>
+        <button type="reset">Annuler</button>
+      </fieldset>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      function isEmail(email) {
+        const emailValid =
+          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return emailValid.test(String(email).toLowerCase());
+      }
+    </script>
+  </body>
+</html>
