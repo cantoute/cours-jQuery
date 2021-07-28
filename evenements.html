@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Evènements JQuery</title>
+    <title>Évènements JQuery</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
   </head>
 
   <body>
     <h1>Titre h1</h1>
+
+    <p>
+      <a href="exercices/gallery/img/slider11.jpg" class="confirm">Lien avec confirmation</a>
+    </p>
 
     <div class="avion">avion 1</div>
     <div class="avion">avion 2</div>
@@ -35,6 +39,14 @@
       // click
       $('h1').on('click', function () {
         alert($(this).text());
+      });
+
+      // ne pas changer de page en cliquant sur un lien
+      $('a.confirm').on('click', function (e) {
+        const c = confirm(`Voulez-vous que le navigateur ouvre l'url ${e.target.href} ?`);
+        if (!c) {
+          e.preventDefault();
+        }
       });
 
       // hover
