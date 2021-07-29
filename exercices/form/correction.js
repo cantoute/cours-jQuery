@@ -69,7 +69,7 @@ $(function () {
     // Voici comment on teste si il y a au moins 2 caractères qui ne soient pas des espaces.
     const minTwoChars = /[^\s]{2,}/.test($(this).val());
   });
-  // on pourrait déclencher l'événement au chargement (donc une fois)
+  // Ainsi on pourrait déclencher l'événement au chargement (donc une fois)
   // .trigger('keyup');
 
   $('input[name=email]').on('keyup change', function (e) {
