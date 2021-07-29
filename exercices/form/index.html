@@ -21,15 +21,13 @@
         </li>
         <li>
           En utilisant <i>event change</i>, supprimer espaces de début et de fin de text pour tous les champs
-          text/email. (trim())
+          text/email. (trim())<br />
+          Mettre le prénom à la forme "Prénom" et nom en majuscules (NOM).
+          <small>(Voir ucFirst(String))</small>
         </li>
         <li>
-          Le champ <i>Prénom</i> et <i>NOM</i> sont obligatoires. (event keypress)<br />
-          Si le champ ne rempli pas les conditions, ajouter la classe "error" sur le label parent.
-          <ul>
-            <li>Mettre le prénom à la forme "Prénom" et nom en majuscules (NOM).</li>
-            <li>Vérifier qu'il fasse au moins 2 lettres.</li>
-          </ul>
+          Le champ <i>Prénom</i> et <i>NOM</i> sont obligatoires. (event keyup)<br />
+          Si il ne fait moins 2 lettres, ajouter la classe "error" sur le label parent.
         </li>
         <li>Rendre le champ email obligatoire, aussi vérifier que l'email soit correct via <i>isEmail()</i></li>
         <li>
@@ -53,7 +51,7 @@
         <label>NOM : <input type="text" name="lastName" placeholder="NOM" /></label>
       </fieldset>
       <fieldset class="fs_4">
-        <label> Courriel : <input type="email" name="email" placeholder="exemple.com" /> </label>
+        <label> Courriel : <input type="email" name="email" placeholder="mon@courriel.com" /> </label>
       </fieldset>
       <fieldset class="fs_5">
         <p id="msg">Ce formulaire requiert que le JavaScript de votre navigateur soit activé.</p>
@@ -67,10 +65,16 @@
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script>
       function isEmail(email) {
-        const emailValid =
-          /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return emailValid.test(String(email).toLowerCase());
+        // credit https://github.com/manishsaraan/email-validator/blob/master/index.js
+        const tester =
+          /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
+        return tester.test(String(email));
       }
+      // const emailIsValid = isEmail('email@domain.com'); // [true|false]
+
+      const ucFirst = t => t.replace(/(^|\s)\w/g, c => c.toUpperCase());
+      // alert(ucFirst('FoO bAr'));
+      // FoO BAr
     </script>
   </body>
 </html>
