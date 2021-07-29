@@ -26,6 +26,7 @@ $(function () {
   });
 
   // 3. supprimer les espaces début/fin String.prototype.trim()
+
   $('input[type=text]').on('change', function () {
     var txt = $(this).val().trim();
 
@@ -42,20 +43,24 @@ $(function () {
     $(this).val(txt);
   });
 
-  //4 Rendre le champ email obligatoire, aussi vérifier que l'email soit correct via isEmail()
-
+  // et mettre le NOM en majuscules
   $('input[name=lastName]').on('change', function () {
     const txt = $(this).val().toUpperCase();
     $(this).val(txt);
   });
 
+  // et utiliser ucFirst() pour le Prénom
   $('input[name=firstName]').on('change', function () {
     const txt = ucFirst($(this).val());
     $(this).val(txt);
   });
 
-  // ça peut aussi s'écrire 'input[name$=Name]' (dont le name se termine en Name)
-  $('input[name=firstName], input[name=lastName]').on('keyup', function (e) {
+  // 4. Rendre les champs nom et prénom obligatoire (au moins 2 caractères)
+  //    Rendre le champ email obligatoire en vérifiant que l'email soit correct via isEmail()
+
+  // ça peut aussi s'écrire 'input[name$=Name]' (=> dont le name se termine en 'Name')
+  // on le branchera préférablement aussi sur l'événement 'change'
+  $('input[name=firstName], input[name=lastName]').on('keyup change', function (e) {
     $(this)
       .closest('label') // Bonus: utiliser .trim() => pas uniquement des espaces par exemple
       .toggleClass('error', !$(this).val().trim().length > 2);
@@ -72,7 +77,12 @@ $(function () {
     $(this).closest('label').toggleClass('error', !emailGood);
   });
 
+  // 5. Intercepter la soumission du formulaire
+  //    et afficher dans #msg un message "Merci de vérifier votre saisie."
+  //    ou "Nous avons bien reçu votre demande." si toutes les conditions sont bien remplies.
+
   $('form').on('submit', function (e) {
+    // Intercepter la soumission du formulaire par le navigateur
     e.preventDefault();
 
     const good =
