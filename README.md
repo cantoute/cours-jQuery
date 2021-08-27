@@ -188,4 +188,4 @@ $('a.confirm').on('click', function (event) {
     - keypress / keyup / keydown
     - Tous les évènements (events) https://api.jquery.com/category/events/
       - [Formulaires](https://api.jquery.com/category/events/form-events/)
-      -
+
